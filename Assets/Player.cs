@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public int cost;
     public GameObject beam;
 
+    public float fireRate = 0.2f;
+    private float fireTimer;
+
     private Vector2 moveInput;
 
     void Update()
@@ -47,8 +50,8 @@ public class Player : MonoBehaviour
 
     void attack()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
+        if (Input.GetMouseButton(0) && fireTimer <= 0)
+        {   
             energy -= cost;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -61,7 +64,11 @@ public class Player : MonoBehaviour
 
             Rigidbody2D beamRB = newBeam.GetComponent<Rigidbody2D>();
             beamRB.linearVelocity = direction * 10f;
+
+            fireTimer = fireRate;
         }
+
+        fireTimer -= Time.deltaTime;
     }
 
     void die()
@@ -72,7 +79,6 @@ public class Player : MonoBehaviour
 
     void aim()
     {
-        //had help with ai here dont understand mouse to moniter
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 direction = mousePosition - transform.position;
@@ -80,6 +86,5 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-
     }
 }

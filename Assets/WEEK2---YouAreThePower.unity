@@ -5312,6 +5312,7 @@ MonoBehaviour:
   energy: 200
   cost: 10
   beam: {fileID: 7356882504548466403, guid: 5df4b7e3b7fbc4a2d9efdd87b621bf95, type: 3}
+  fireRate: 0.2
 --- !u!212 &981803590
 SpriteRenderer:
   serializedVersion: 2
@@ -5537,10 +5538,11 @@ MonoBehaviour:
   player: {fileID: 981803591}
   enemy: {fileID: 7779305387695891927, guid: b41cec9342c194b529013d0e9794692b, type: 3}
   offset: {x: 0, y: 0, z: 0}
-  timer: 500
-  cd: 100
+  timer: 2
+  cd: 1
   min: 5
   max: 20
+  amount: 1
 --- !u!4 &1347647266
 Transform:
   m_ObjectHideFlags: 0
@@ -5668,10 +5670,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 767630235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113.30708, y: -100.85731}
-  m_SizeDelta: {x: 204.4409, y: 36.122}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -348, y: -244.7}
+  m_SizeDelta: {x: 300, y: 36.12201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1539192051
 MonoBehaviour:
@@ -5707,7 +5709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Energy : 200'
+  m_text: 'Energy : 1000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5773,7 +5775,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -1.3169861, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
