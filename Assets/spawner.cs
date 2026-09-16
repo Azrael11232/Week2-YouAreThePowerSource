@@ -47,12 +47,18 @@ public class spawner : MonoBehaviour
 
     void spawn()
     {
-        int randomX = Random.Range(0, 2) == 0 ? -1 : 1;
-        int randomY = Random.Range(0, 2) == 0 ? -1 : 1;
+        if (player != null)
+        {
+            int randomX = Random.Range(0, 2) == 0 ? -1 : 1;
+            int randomY = Random.Range(0, 2) == 0 ? -1 : 1;
 
-        offset.x = Random.Range(min, max) * randomX;
-        offset.y = Random.Range(min, max) * randomY;
+            offset.x = Random.Range(min, max) * randomX;
+            offset.y = Random.Range(min, max) * randomY;
 
-        Instantiate(enemy, player.position + offset, transform.rotation);
+            Instantiate(enemy, player.position + offset, transform.rotation);
+        }
+
+        else
+            return;
     }
 }

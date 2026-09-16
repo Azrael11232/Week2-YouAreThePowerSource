@@ -23,18 +23,20 @@ public class enemy : MonoBehaviour
 
     void MoveTowards(Transform target)
     {
+        if (player != null)
         transform.position = Vector2.MoveTowards(
             transform.position,
             target.position,
             speed * Time.fixedDeltaTime
         );
+        else
+            return;
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("beam"))
         {
-            Debug.Log("hit");
             Destroy(gameObject);
 
             if (Random.Range(1, 100) <= chance)
